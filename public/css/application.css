@@ -17,7 +17,7 @@ body {
   background-image: center;
   background-repeat: no-repeat;
   margin: 40px;
-  color: #404040;
+  color: white;
   text-align: center;
   font-family: "Courier New";}
 
@@ -25,3 +25,26 @@ body {
    margin: 10px;
   width: 100px;
 }
+
+input[type="submit"]{
+  text-decoration: none;
+  color:white;
+  background-color: rgba(256, 256, 256, 0.0);
+}
+
+input[type="submit"]:hover{
+  background-color: rgba(256, 256, 256, 0.2);
+
+}
+
+ a {
+  text-decoration: none;
+  color:white;
+}
+
+a:hover {
+  background-color: rgba(256, 256, 256, 0.2);
+}
+
+
+

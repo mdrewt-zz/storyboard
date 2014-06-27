@@ -6,11 +6,9 @@
 <%= story.title %> by <%= @users.find(story.user_id).name %></a> <br>
 <% end %>
 
-<br><br>
+<br><br><br><br>
+<div class="button"><a href="/stories/new">Add New Story</a></div><br><br>
 </div>
 
 
-<form action="/stories/new" method="get">
-  <input type="submit" value="Add New Story">
-</form>
 
