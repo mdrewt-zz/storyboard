@@ -1,9 +1,12 @@
 <h1>Welcome, <%= @user.name %></h1>
 <% @stories.each do |story| %>
-<%= story.title %> by <%= @users.find(story.user_id).name %>
+<a href="/stories/<%= story.id %>">
+<%= story.title %> by <%= @users.find(story.user_id).name %></a> <br>
 <% end %>
 
 <br><br>
+
+
 
 <form action="/stories/new" method="get">
   <input type="submit" value="Add New Story">
