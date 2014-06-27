@@ -10,8 +10,8 @@ get '/stories/new' do
 end
 
 post '/stories/new' do
-  @story = Story.create(title: params[:title], summary: params[:summary])
-  redirect "/stories/#{@story.id}"
+  @story = Story.create(title: params[:title], summary: params[:summary], user_id: session[:user].id)
+  redirect "/stories"
 end
 
 get '/stories/:id' do

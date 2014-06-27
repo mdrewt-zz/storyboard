@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   def self.authenticate(params)
     email = params[:email]
     password = params[:password]
-    User.find_by(email: email, password: password)
+    p email
+    p password
+    User.find_by(email: email).password == password
   end
 
 end

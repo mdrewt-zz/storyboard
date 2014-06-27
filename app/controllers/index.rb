@@ -1,26 +1,33 @@
 get '/' do
-  erb :index
+	if session[:user].is_a? User
+		redirect '/stories'
+	else
+  	erb :index
+  end
 end
 
 get '/signup' do
 	erb :index
-end 
+end
 
 post '/signup' do
 	User.create(name: params[:name], email: params[:email],
 	username: params[:username], password: params[:password])
-end 
 
-get '/login' do
-	erb :index
+	redirect "/stories"
 end
 
 post '/login' do
-user = User.authenticate(params[:username], params[:password])
+	user = User.authenticate(params)
 	if user
-		session[:id] = user.id
+		session[:user] = User.find_by(email: params[:email])
 		redirect '/stories'
-	else 
+	else
 		redirect '/'
-	end 
-end 
+	end
+end
+
+get '/logout' do
+	session[:user] = nil
+	redirect '/'
+end
