@@ -2,21 +2,21 @@
   <h1>Welcome to StoryBoard</h1>
 </div>
 <div class="container">
-  <h2>Existing Users Please Log in Below</h2>
+  <h2>Log In</h2>
 	<%= "Invalid Username or Password" if @failed%>
 	<form method="post" action="/login">
-	<input name="email" placeholder="E-mail"><br>
-	<input name="password" type="password" placeholder="Password">
+	<input name="email" placeholder="E-mail"><br><br>
+	<input name="password" type="password" placeholder="Password"><br><br>
 	<input type="submit" value="Log In">
 	</form>
 </div>
 <div class="container">
   <h2>New User? Sign Up</h2>
 	<form method="post" action="/signup">
-	<input name="name" placeholder="Name"><br>
-	<input name="email" placeholder="E-mail"><br>
-	<input name="username" placeholder="Username"><br>
-	<input name="password" type="password" placeholder="Password">
+	<input name="name" placeholder="Name"><br><br>
+	<input name="email" placeholder="E-mail"><br><br>
+	<input name="username" placeholder="Username"><br><br>
+	<input name="password" type="password" placeholder="Password"><br><br>
 	<input type="submit" value="Sign Up">
 	</form>
 </div>
