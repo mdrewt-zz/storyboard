@@ -18,3 +18,13 @@ get '/stories/:id' do
   @story = Story.find(params[:id])
   erb :branches
 end
+
+get '/stories/:id/edit' do
+  @story = Story.find(params[:id])
+  erb :edit_story
+end
+
+put '/stories/:id' do
+  @story = Story.update(params[:id], title: params[:title], summary: params[:summary])
+  redirect '/stories/#{@story.id}'
+end

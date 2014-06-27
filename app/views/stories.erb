@@ -1,13 +1,16 @@
-<h1>Welcome, <%= @user.name %></h1>
+<div class="container"><br><br>
+<h1>Welcome, <%= @user.name %></h1><br><br><br><br>
+
 <% @stories.each do |story| %>
 <a href="/stories/<%= story.id %>">
 <%= story.title %> by <%= @users.find(story.user_id).name %></a> <br>
 <% end %>
 
 <br><br>
-
+</div>
 
 
 <form action="/stories/new" method="get">
   <input type="submit" value="Add New Story">
 </form>
+

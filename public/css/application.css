@@ -2,8 +2,9 @@
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  /*border: 1px dotted black;*/
   background-color: rgba(229,255,204, 0.1);
+  box-shadow: 0px 30px 40px rgba(0,0,0,.4);
 }
 th {
   text-align: left;
@@ -16,5 +17,11 @@ body {
   background-image: center;
   background-repeat: no-repeat;
   margin: 40px;
-  color: grey;
-  text-align: center;}
+  color: #404040;
+  text-align: center;
+  font-family: "Courier New";}
+
+#layout {
+   margin: 10px;
+  width: 100px;
+}
