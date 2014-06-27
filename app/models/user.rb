@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     password = params[:password]
     p email
     p password
-    User.find_by(email: email).password == password
+    User.find_by(email: params[:email]).password == password
   end
 
 end
