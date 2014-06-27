@@ -4,4 +4,8 @@ class Story < ActiveRecord::Base
   validates :summary, presence: true
   has_many :segments
   belongs_to :user
+
+  def starting_segments
+    Segment.where("id = ? AND parent_id = ?", self.id, 0)
+  end
 end
