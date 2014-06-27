@@ -3,7 +3,18 @@
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  background-color: rgba(229,255,204, 0.1);
 }
 th {
   text-align: left;
 }
+
+body {
+  background-image: url('http://static.tumblr.com/2873c7f1eb6f792e5fce1036561e562d/nbkdac9/9WMn4uugh/tumblr_static_7ixmbre2hvwock0gkg0gwowwo.jpg');
+  background-height: 100%;
+  background-width: 100%;
+  background-image: center;
+  background-repeat: no-repeat;
+  margin: 40px;
+  color: grey;
+  text-align: center;}

@@ -14,6 +14,14 @@ post '/signup' do
 	User.create(name: params[:name], email: params[:email],
 	username: params[:username], password: params[:password])
 
+	user = User.authenticate(params)
+	if user
+		session[:user] = User.find_by(email: params[:email])
+		redirect '/stories'
+	else
+		redirect '/'
+	end
+
 	redirect "/stories"
 end
 
