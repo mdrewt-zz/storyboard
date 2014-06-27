@@ -1,0 +1,7 @@
+<%= @segment.title %><br>
+
+<%= @segment.body %><br>
+
+<% @segment.branches.each do |branch| %>
+  <a href=<%= "/branch/#{branch.id}" %>> <%= branch.id %> </a><br>
+<% end %>
