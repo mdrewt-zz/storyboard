@@ -8,8 +8,11 @@ get '/stories/new' do
 end
 
 post '/stories/new' do
-  @story = Story.create
+  @story = Story.create(title: params[:title], summary: params[:summary])
+  redirect "/stories/#{@story.id}"
 end
 
 get '/stories/:id' do
+  @story = Story.find(params[:id])
+  erb :branches
 end
