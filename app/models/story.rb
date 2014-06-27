@@ -6,6 +6,6 @@ class Story < ActiveRecord::Base
   belongs_to :user
 
   def starting_segments
-    Segment.where("id = ? AND parent_id = ?", self.id, 0)
+    self.segments
   end
 end

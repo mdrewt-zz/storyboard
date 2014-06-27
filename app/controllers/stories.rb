@@ -1,5 +1,5 @@
 get '/stories' do
-  @user = session[:user] # THIS IS WRONG.. but we need a user
+  @user = session[:user] || User.new
   @users = User.all
   @stories = Story.all
   erb :stories
