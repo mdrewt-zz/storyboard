@@ -4,4 +4,8 @@ class Story < ActiveRecord::Base
   validates :summary, presence: true
   has_many :segments
   belongs_to :user
+
+  def starting_segments
+    self.segments
+  end
 end
