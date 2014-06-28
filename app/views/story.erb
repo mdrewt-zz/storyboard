@@ -1,0 +1,10 @@
+<br><br><div class="container"><br>
+
+<br><br><br><%= @story.title %> by <%= @story.user.name %><br><br><br>
+<%= @story.summary %><br><br><br>
+<% @story.segments.each do |segment| %>
+  <%= segment.body[0..30] + "..."  %>
+<% end %>
+
+<br><br>
+</div>
