@@ -1,9 +1,8 @@
 <div class="container">
-
-<%= @segment.title %><br>
-<%= @segment.body %><br>
-<% @segment.branches.each do |branch| %>
-  <a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..30] %> </a><br>
-<% end %>
+  
+  <%= @segment.body %><br>
+  <% @segment.branches.each do |branch| %>
+    <a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..30] %> </a><br>
+  <% end %>
 
 </div>

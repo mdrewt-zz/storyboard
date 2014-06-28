@@ -1,10 +1,14 @@
 <br><br><div class="container"><br>
 
-<br><br><br><%= @story.title %> by <%= @story.user.name %><br><br><br>
-<%= @story.summary %><br><br><br>
-<% @story.segments.each do |segment| %>
-  <%= segment.body[0..30] + "..."  %>
-<% end %>
+  <br><br><br><%= @story.title %> by <%= @story.user.name %><br><br><br>
+  <%= @story.summary %><br><br><br>
+  <%= @story.segments.first %>
+  <% @story.segments.each do |segment| %>
+    <%= segment.body + "..."  %>
+  <% end %>
 
-<br><br>
+  <br><br>
+
+  <div class="button"><a href=<%= "/story/#{@story.id}/segment/0/new" %>>Add Segment</a></div>
+  
 </div>
