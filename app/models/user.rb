@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :segments
 
   def password
-    @password ||= Password.new(password_hash)
+    @password ||= Password.new(password_hash) if password_hash
   end
 
   def password=(new_password)
@@ -18,11 +18,8 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(params)
-    email = params[:email]
-    password = params[:password]
-    p email
-    p password
-    User.find_by(email: params[:email]).password == password
+    user = User.find_by(email: params[:email]) || User.new
+    user.password == params[:password]
   end
 
 end
