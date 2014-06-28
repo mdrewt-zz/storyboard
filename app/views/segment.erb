@@ -1,7 +1,10 @@
-<%= @segment.title %><br>
+<div class="container">
 
-<%= @segment.body %><br>
+  <%= @segment.body %><br>
+  <% @segment.branches.each do |branch| %>
+    <a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..20] + "..." %> </a><br>
+  <% end %>
 
-<% @segment.branches.each do |branch| %>
-  <a href=<%= "/branch/#{branch.id}" %>> <%= branch.id %> </a><br>
-<% end %>
+  <div class="button"><a href=<%= "/story/#{@story.id}/segment/#{@segment.id}/new" %>>Add Segment</a></div>
+
+</div>

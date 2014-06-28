@@ -2,7 +2,7 @@ get '/stories' do
   @user = session[:user] || User.new
   @users = User.all
   @stories = Story.all
-  erb :stories
+  erb :all_stories
 end
 
 get '/stories/new' do
@@ -16,7 +16,7 @@ end
 
 get '/stories/:id' do
   @story = Story.find(params[:id])
-  erb :branches
+  erb :story
 end
 
 get '/stories/:id/edit' do

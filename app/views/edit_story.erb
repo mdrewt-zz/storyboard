@@ -1,9 +1,11 @@
 <div class="container"><br><br>
-  <h1>Make a New Story</h1><br><br>
-<form name="edit_story" action="/stories/:id" method="post">
-  <input type="hidden" name="_method" value="put" >
-  <input type="text" name="title" value="<%=@story.title%>"><br><br><br><br>
-  <textarea rows="4" cols="50" name="summary"><%= @story.body %></textarea><br><br><br><br>
-  <input type="submit" value="Submit">
-</form>
+
+  <h1>Edit a Story</h1><br><br>
+  <form name="edit_story" action="/stories/:id" method="post">
+    <input type="hidden" name="_method" value="put" >
+    <input type="text" name="title" value="<%=@story.title%>"><br><br><br><br>
+    <textarea rows="4" cols="50" name="summary"><%= @story.body %></textarea><br><br><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  
 </div>
