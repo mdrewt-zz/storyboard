@@ -19,7 +19,7 @@ end
 get '/story/:story_id/segment/:segment_id/edit' do
   @story = Story.find(params[:story_id])
   @segment = Segment.find(params[:segment_id])
-  if session[:user].id == @segment.user_id
+  if session[:user_id] == @segment.user_id
     erb :edit_segment
   else
     # erb :permission_denied
