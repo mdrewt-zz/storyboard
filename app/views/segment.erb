@@ -1,10 +1,28 @@
 <div class="container">
-
-  <%= @segment.body %><br>
-  <% @segment.branches.each do |branch| %>
-    <a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..20] + "..." %> </a><br>
-  <% end %>
-
-  <div class="button"><a href=<%= "/story/#{@story.id}/segment/#{@segment.id}/new" %>>Add Segment</a></div>
-
+  <div class="body">
+    <h3><%= @segment.story.title %></h3><br>
+    <%= @segment.body %><br>
+  </div>
+  <div class="button"><a href=<%= "/story/#{@story.id}/segment/#{@segment.id}/edit" %>>Edit</a></div>
 </div>
+
+<div class="container branches">
+  <h3>Next segments</h3>
+  <ul>
+  <% @segment.branches.each do |branch| %>
+    <li><a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..20] + "..." %> </a></li><br>
+  <% end %>
+  </ul>
+</div>
+
+
+
+<div class="container create">
+  <h3>Write something!</h3>
+  <form action=<%="/story/#{@story.id}/segment/#{@parent_id}/new"%> method="post">
+    <br>
+    <textarea rows="4" cols="40" name="body" placeholder="What happens next?"></textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+

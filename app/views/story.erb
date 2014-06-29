@@ -2,9 +2,8 @@
 
   <br><br><br><%= @story.title %> by <%= @story.user.name %><br><br><br>
   <%= @story.summary %><br><br><br>
-  <%= @story.segments.first %>
-  <% @story.segments.each do |segment| %>
-    <%= segment.body + "..."  %>
+  <% @story.segments.where(parent_id: 0).each do |segment| %>
+    <a href=<%= "/story/#{@story.id}/segment/#{segment.id}" %>><%= segment.body[0..20] + "..."  %></a><br>
   <% end %>
 
   <br><br>
