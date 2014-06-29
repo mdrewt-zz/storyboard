@@ -1,5 +1,5 @@
 get '/stories' do
-  @user = session[:user] || User.new
+  @user = User.find(session[:user_id]) || User.new
   @users = User.all
   @stories = Story.all
   erb :all_stories
@@ -10,7 +10,7 @@ get '/stories/new' do
 end
 
 post '/stories/new' do
-  @story = Story.create(title: params[:title], summary: params[:summary], user_id: session[:user].id)
+  @story = Story.create(title: params[:title], summary: params[:summary], user_id: session[:user_id])
   redirect "/stories"
 end
 

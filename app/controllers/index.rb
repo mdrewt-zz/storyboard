@@ -1,5 +1,5 @@
 get '/' do
-	if session[:user].is_a? User
+	if User.where(id: session[:user_id]).first.is_a? User
 		redirect '/stories'
 	else
   	erb :index
@@ -16,7 +16,7 @@ post '/signup' do
 
 	user = User.authenticate(params)
 	if user
-		session[:user] = User.find_by(email: params[:email])
+		session[:user_id] = User.find_by(email: params[:email]).id
 		redirect '/stories'
 	else
 		redirect '/'
@@ -28,7 +28,7 @@ end
 post '/login' do
 	user = User.authenticate(params)
 	if user
-		session[:user] = User.find_by(email: params[:email])
+		session[:user_id] = User.find_by(email: params[:email]).id
 		redirect '/stories'
 	else
 		redirect '/'
@@ -36,6 +36,6 @@ post '/login' do
 end
 
 get '/logout' do
-	session[:user] = nil
+	session[:user_id] = nil
 	redirect '/'
 end
