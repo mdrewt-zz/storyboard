@@ -10,7 +10,7 @@
   <h3>Next segments</h3>
   <ul>
   <% @segment.branches.each do |branch| %>
-    <li><a href=<%= "story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..20] + "..." %> </a></li><br>
+    <li><a href=<%= "/story/#{branch.story.id}/segment/#{branch.id}" %>> <%= branch.body[0..20] + "..." %> </a></li><br>
   <% end %>
   </ul>
 </div>
