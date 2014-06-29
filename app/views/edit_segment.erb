@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Edit?</h1><br><br>
+  <form action=<%="/story/#{@story.id}/segment/#{@segment.id}/edit"%> method="post">
+    <input type="hidden" name="_method" value="put">
+    <textarea rows="4" cols="50" name="body"><%= @segment.body %></textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
