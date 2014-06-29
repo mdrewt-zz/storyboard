@@ -1,11 +1,13 @@
 .container {
+  display: block;
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
+  padding: 15px 15px 15px 15px;
   /*border: 1px dotted black;*/
   background-color: rgba(229,255,204, 0.1);
   box-shadow: 0px 30px 40px rgba(0,0,0,.4);
 }
+
 th {
   text-align: left;
 }
@@ -44,6 +46,23 @@ a {
 
 a:hover {
   background-color: rgba(256, 256, 256, 0.2);
+}
+
+div .body {
+  width: 80%;
+  padding: 10%;
+  clear: both;
+  display: block;
+}
+
+div .branches {
+  padding: 10%;
+  display: block;
+}
+
+div .create {
+  padding: 10%;
+  display: block;
 }
 
 
