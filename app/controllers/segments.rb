@@ -28,6 +28,6 @@ end
 
 put '/story/:story_id/segment/:segment_id/edit' do
   segment = Segment.find(params[:segment_id])
-  segment.update(body: params(:body))
+  segment.update(body: params[:body])
   redirect "story/#{params[:story_id]}/segment/#{segment.id}"
 end
