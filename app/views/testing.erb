@@ -1,10 +1,12 @@
 <div class="container">
-  <div id =<%= "#{@segment.id}" %>>
+  <a href=""><div class="left">{</div></a>
+  <div class="center" id=<%= "#{@segment.id}" %>>
     <script>
       var segment = <%= @segment.to_json %>;
       $("#".concat(segment.id)).text( segment.body );
     </script>
   </div>
+  <a href=""><div class="right">}</div></a>
 </div>
 
 <% if @segment.branches.first %>
