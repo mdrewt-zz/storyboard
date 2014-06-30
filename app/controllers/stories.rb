@@ -2,6 +2,7 @@ get '/stories' do
   @user = User.find(session[:user_id]) || User.new
   @users = User.all
   @stories = Story.all
+  @stories.sort_by { |story| story.updated_at }
   erb :all_stories
 end
 
@@ -16,6 +17,7 @@ end
 
 get '/stories/:id' do
   @story = Story.find(params[:id])
+  @segment = Segment.where("story_id = ? AND parent_id = 0", @story.id).first
   erb :story
 end
 

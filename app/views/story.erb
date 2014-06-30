@@ -1,13 +1,32 @@
-<br><br><div class="container"><br>
+<div class="container"><br>
 
-  <br><br><br><%= @story.title %> by <%= @story.user.name %><br><br><br>
-  <%= @story.summary %><br><br><br>
-  <% @story.segments.where(parent_id: 0).each do |segment| %>
-    <a href=<%= "/story/#{@story.id}/segment/#{segment.id}" %>><%= segment.body[0..20] + "..."  %></a><br>
-  <% end %>
-
-  <br><br>
-
-  <div class="button"><a href=<%= "/story/#{@story.id}/segment/0/new" %>>Add Segment</a></div>
+  <h2><%= @story.title %></h2>
+  <h3>by <%= @story.user.name %></h3>
+  <h4>Summary</h4>
+  <p><%= @story.summary %></p>
   
 </div>
+
+<%= erb :testing if @segment %>
+
+
+<script type="text\javascript">
+  var story = <%= @story.to_json %>;
+  segment.parent_id = 0 if segment.parent_id == null;
+  document.write('<form action="/story/' + story.id + '/segment/' + segment.parent_id + '/new" method="post">');
+</script>
+
+<div class="container create">
+  <h3>Write something!</h3>
+  <form action=<%="/story/#{@story.id}/segment/#{@segment.id}/new"%> method="post">
+    <br>
+    <textarea rows="4" cols="40" name="body" placeholder="What happens next?"></textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<script type="text\javascript">
+    var story = <%= @story.to_json %>;
+    segment.parent_id = 0 if segment.parent_id == null;
+    document.write(segment.parent_id);
+</script>

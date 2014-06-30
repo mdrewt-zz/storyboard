@@ -13,7 +13,7 @@ end
 
 post '/story/:story_id/segment/:segment_id/new' do
   segment = Segment.create(body: params[:body], story_id: params[:story_id], parent_id: params[:segment_id], user_id: session[:user].id)
-  redirect "story/#{params[:story_id]}/segment/#{segment.id}"
+  redirect "stories/#{params[:story_id]}"
 end
 
 get '/story/:story_id/segment/:segment_id/edit' do

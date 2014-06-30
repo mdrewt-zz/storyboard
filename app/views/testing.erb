@@ -1,13 +1,13 @@
-<div class="container" id =<%= "#{@segment.id}" %>>
-  <%= @segment.to_json %>
-  <br>
-  <br>
-
-  <script>
-    json = <%= @segment.to_json %>;
-    $("#".concat(json.id)).text( json.body );
-  </script>
+<div class="container">
+  <div id =<%= "#{@segment.id}" %>>
+    <script>
+      var segment = <%= @segment.to_json %>;
+      $("#".concat(segment.id)).text( segment.body );
+    </script>
+  </div>
 </div>
 
-<% @segment = @segment.branches.first %>
-<%= erb :testing if @segment %>
+<% if @segment.branches.first %>
+  <% @segment = @segment.branches.first %>
+  <%= erb :testing %>
+<% end %>
