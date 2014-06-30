@@ -22,7 +22,7 @@ get '/story/:story_id/segment/:segment_id/edit' do
   if session[:user_id] == @segment.user_id
     erb :edit_segment
   else
-    # erb :permission_denied
+    erb :permission_denied
   end
 end
 
