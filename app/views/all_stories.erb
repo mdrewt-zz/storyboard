@@ -5,8 +5,8 @@
 <div class="container"><br>
   <h3>Current Stories</h3><br>
   <% @stories.each do |story| %>
-  <a href="/stories/<%= story.id %>">
-  <%= story.title %> by <%= @users.find(story.user_id).name %></a> <br>
+  <em><a href="/stories/<%= story.id %>">
+  <%= story.title %> by <%= @users.find(story.user_id).name %></a></em> <br>
   <% end %>
 
   <br><br>
