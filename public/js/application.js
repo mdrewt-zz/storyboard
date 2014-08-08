@@ -4,4 +4,19 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+  $('.next_branch').click(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: window.location.pathname + "/usertype",
+      type: "post",
+      dataType: "json",
+      success: function(data) { 
+        player = data; 
+      }
+    });
+    
+  });
+
 });
