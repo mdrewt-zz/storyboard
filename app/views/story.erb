@@ -8,16 +8,16 @@
 </div>
 
 <script>
-  var all_segments = Array.new()
+  // var all_segments = Array.new()
 </script>
 
 <%= erb :testing if @segment %>
 
 
 <script type="text\javascript">
-  var story = <%= @story.to_json %>;
-  segment.parent_id = 0 if segment.parent_id == null;
-  document.write('<form action="/story/' + story.id + '/segment/' + segment.parent_id + '/new" method="post">');
+  // var story = <%= @story.to_json %>;
+  // segment.parent_id = 0 if segment.parent_id == null;
+  // document.write('<form action="/story/' + story.id + '/segment/' + segment.parent_id + '/new" method="post">');
 </script>
 
 <div class="container create">
@@ -30,7 +30,7 @@
 </div>
 
 <script type="text\javascript">
-    var story = <%= @story.to_json %>;
-    segment.parent_id = 0 if segment.parent_id == null;
-    document.write(segment.parent_id);
+    // var story = <%= @story.to_json %>;
+    // segment.parent_id = 0 if segment.parent_id == null;
+    // document.write(segment.parent_id);
 </script>
