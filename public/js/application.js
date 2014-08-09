@@ -5,18 +5,22 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-  $('.next_branch').click(function(e) {
+  $('.next_branch').click(function(e) { 
     e.preventDefault();
+    var id = $(this).attr("id")
 
     $.ajax({
-      url: window.location.pathname + "/usertype",
+      url: window.location.pathname + id,
       type: "post",
       dataType: "json",
       success: function(data) { 
-        player = data; 
+        $('.segment:gt(' + id + ')').remove(); 
+        for(i=0; i<data.length; i++) {
+          $('body').append("<div class='container segment' id=" + data[i].id + ">" + data[i].content + "</div>")
+        }
       }
     });
-    
+
   });
 
 });
