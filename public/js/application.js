@@ -1,9 +1,4 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
   $('.next_branch').click(function(e) { 
     e.preventDefault();
@@ -11,7 +6,7 @@ $(document).ready(function() {
 
     $.ajax({
       url: window.location.pathname + id,
-      type: "post",
+      type: "get",
       dataType: "json",
       success: function(data) { 
         $('.segment:gt(' + id + ')').remove(); 
@@ -20,7 +15,33 @@ $(document).ready(function() {
         }
       }
     });
-
   });
+
+  var Segment = function(data) {
+    this.init(data)
+  }
+
+  var init = function(o){
+    for (p in o){
+      this[p] = o[p]
+    }
+  }
+
+  Segment.prototype.init = init
+
+  Segment.prototype.create = function(path){
+    self = this
+    $.ajax({
+      url: path
+      type: "get",
+      dataType: "json",
+      success: function(data) {
+        self.id = data.id
+        self.user_id =
+      }
+    });
+  }
+
+  // {"id":5,"user_id":2,"story_id":1,"parent_id":2,"body":"zkxfthakru","created_at":"2014-06-30T14:10:44.216Z","updated_at":"2014-06-30T14:10:44.216Z"}
 
 });
