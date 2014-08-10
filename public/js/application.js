@@ -4,17 +4,7 @@ $(document).ready(function() {
     e.preventDefault();
     var id = $(this).attr("id")
 
-    $.ajax({
-      url: window.location.pathname + id,
-      type: "get",
-      dataType: "json",
-      success: function(data) { 
-        $('.segment:gt(' + id + ')').remove(); 
-        for(i=0; i<data.length; i++) {
-          $('body').append("<div class='container segment' id=" + data[i].id + ">" + data[i].content + "</div>")
-        }
-      }
-    });
+    Segment.create($(this.href()))
   });
 
   var Segment = function(data) {
@@ -36,8 +26,8 @@ $(document).ready(function() {
       type: "get",
       dataType: "json",
       success: function(data) {
-        self.id = data.id
-        self.user_id =
+        s = new Segment(data)
+        console.log(s)
       }
     });
   }
