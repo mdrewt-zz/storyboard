@@ -1,5 +1,32 @@
 $(document).ready(function() {
 
+  var displaySegment = function(segment) {
+    var div = jQuery('<div/>', {
+      class: "container"
+    }).appendTo('#segments');
+
+    jQuery('<div/>', {
+      class: "left",
+      href: "/json/" + segment.parent_id + "/0",
+      text: "{"
+    }).appendTo(div)
+
+    jQuery('<div/>', {
+      class: "center",
+      id: segment.id,
+      text: segment.body
+    }).appendTo(div)
+
+    jQuery('<div/>', {
+      class: "right",
+      href: "/json/" + segment.parent_id + "/0",
+      text: "}"
+    }).appendTo(div)
+
+  }
+
+  // id: segment.id,
+
   var segments;
   if ($("#segment_container")) {
     $.ajax({
