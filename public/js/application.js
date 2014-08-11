@@ -3,7 +3,7 @@ $(document).ready(function() {
   var segments;
   if ($("#segment_container")) {
     $.ajax({
-      url: $(#segment_container).attr("href"),
+      url: $("#segment_container").attr("href"),
       type: "get",
       dataType: "json",
       success: function(data) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
   Segment.prototype.create = function(path){
     self = this
     $.ajax({
-      url: path
+      url: path,
       type: "get",
       dataType: "json",
       success: function(data) {
