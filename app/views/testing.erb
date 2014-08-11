@@ -1,19 +1,6 @@
-<script>
-  var segment = <%= @segment.to_json %>;
-  all_segments.push(segment)
-</script>
-
 <div class="container">
   <a href="/json/" onclick="location.href=this.href+all_segments[all_segments.indexOf(segment)].id - 1+'/1';return false;"><div class="left">{</div></a>
   <div class="center" id=<%= "#{@segment.id}" %>>
-    <script>
-      $( "#".concat(segment.id)).text( segment.body );
-    </script>
   </div>
   <a href="/json/" onclick="location.href=this.href+'2'+'/1';return false;"><div class="right">}</div></a>
 </div>
-
-<% if @segment.branches.length > 0 %>
-  <% @segment = @segment.branches.first %>
-  <%= erb :testing %>
-<% end %>
