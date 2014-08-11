@@ -7,30 +7,17 @@
   
 </div>
 
-<script>
-  var all_segments = Array.new()
-</script>
-
 <%= erb :testing if @segment %>
 
+<div id="segments" href=<%="/json/#{@segment.id}/0"%>>
+</div>
 
-<script type="text\javascript">
-  var story = <%= @story.to_json %>;
-  segment.parent_id = 0 if segment.parent_id == null;
-  document.write('<form action="/story/' + story.id + '/segment/' + segment.parent_id + '/new" method="post">');
-</script>
 
 <div class="container create">
   <h3>Write something!</h3>
-  <form action=<%="/story/#{@story.id}/segment/#{@segment.id}/new"%> method="post">
+  <form action=<%="/story/#{@segment.id}/segment/#{@segment.id}/new"%> method="post">
     <br>
     <textarea rows="4" cols="40" name="body" placeholder="What happens next?"></textarea><br><br>
     <input type="submit" value="Submit">
   </form>
 </div>
-
-<script type="text\javascript">
-    var story = <%= @story.to_json %>;
-    segment.parent_id = 0 if segment.parent_id == null;
-    document.write(segment.parent_id);
-</script>

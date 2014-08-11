@@ -2,7 +2,6 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
-  # Remember to create a migration!
   validates :name, presence: true
   validates :email, uniqueness: true
   has_many :stories
