@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+  var segments;
+  if ($("#segment_container")) {
+    $.ajax({
+      url: $(#segment_container).attr("href"),
+      type: "get",
+      dataType: "json",
+      success: function(data) {
+        s = new Segment(data)
+        console.log(s)
+      }
+    });
+  }
+
   $('.next_branch').click(function(e) { 
     e.preventDefault();
     var id = $(this).attr("id")
@@ -31,7 +44,5 @@ $(document).ready(function() {
       }
     });
   }
-
-  // {"id":5,"user_id":2,"story_id":1,"parent_id":2,"body":"zkxfthakru","created_at":"2014-06-30T14:10:44.216Z","updated_at":"2014-06-30T14:10:44.216Z"}
 
 });

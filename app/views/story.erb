@@ -7,11 +7,15 @@
   
 </div>
 
-<%#= erb :testing if @segment %>
+<%= erb :testing if @segment %>
+
+<div id="segments" href=<%="/json/#{@segment.id}/0"%>>
+</div>
+
 
 <div class="container create">
   <h3>Write something!</h3>
-  <form action=<%="/story/#{@story.id}/segment/#{@segment.id}/new"%> method="post">
+  <form action=<%="/story/#{@segment.id}/segment/#{@segment.id}/new"%> method="post">
     <br>
     <textarea rows="4" cols="40" name="body" placeholder="What happens next?"></textarea><br><br>
     <input type="submit" value="Submit">
