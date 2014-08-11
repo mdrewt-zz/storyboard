@@ -57,31 +57,31 @@ namespace :generate do
     end
   end
 
-  desc "Create an empty model spec in spec, e.g., rake generate:spec NAME=user"
-  task :spec do
-    unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:spec NAME=user"
-    end
+  # desc "Create an empty model spec in spec, e.g., rake generate:spec NAME=user"
+  # task :spec do
+    # unless ENV.has_key?('NAME')
+    #   raise "Must specificy migration name, e.g., rake generate:spec NAME=user"
+    # end
 
-    name     = ENV['NAME'].camelize
-    filename = "%s_spec.rb" % ENV['NAME'].underscore
-    path     = APP_ROOT.join('spec', filename)
+    # name     = ENV['NAME'].camelize
+    # filename = "%s_spec.rb" % ENV['NAME'].underscore
+    # path     = APP_ROOT.join('spec', filename)
 
-    if File.exist?(path)
-      raise "ERROR: File '#{path}' already exists"
-    end
+    # if File.exist?(path)
+    #   raise "ERROR: File '#{path}' already exists"
+    # end
 
-    puts "Creating #{path}"
-    File.open(path, 'w+') do |f|
-      f.write(<<-EOF.strip_heredoc)
-        require 'spec_helper'
+    # puts "Creating #{path}"
+    # File.open(path, 'w+') do |f|
+    #   f.write(<<-EOF.strip_heredoc)
+    #     require 'spec_helper'
 
-        describe #{name} do
-          pending "add some examples to (or delete) #{__FILE__}"
-        end
-      EOF
-    end
-  end
+    #     describe #{name} do
+    #       pending "add some examples to (or delete) #{__FILE__}"
+    #     end
+    #   EOF
+    # end
+  # end
 
 end
 
@@ -130,7 +130,7 @@ task "console" do
   exec "irb -r./config/environment"
 end
 
-desc "Run the specs"
-RSpec::Core::RakeTask.new(:spec)
+# desc "Run the specs"
+# RSpec::Core::RakeTask.new(:spec)
 
-task :default  => :specs
+# task :default  => :specs
