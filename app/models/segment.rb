@@ -7,7 +7,7 @@ class Segment < ActiveRecord::Base
     seg = Segment.where(parent_id: parent_id)
     seg = seg[index % seg.length]
     children = seg.branches
-    children.length > 0 ? [seg] << Segment.descended_from(seg.id) : seg
+    children.length > 0 ? [seg] + Segment.descended_from(seg.id) : [seg]
   end
 
 end
