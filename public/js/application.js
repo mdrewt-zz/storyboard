@@ -12,7 +12,7 @@ var init = function(o){
 
 Segment.prototype.init = init
 
-Segment.create = function(path) {
+Segment.create = function(path, funct) {
   self = this
   $.ajax({
     url: path,
@@ -20,8 +20,9 @@ Segment.create = function(path) {
     dataType: "json",
     success: function(data) {
       for (info in data) {
-        segments.push(new Segment(data[info]))
+        segments.push(new Segment(data[info]));
       }
+      funct();
     }
   });
 }
@@ -53,17 +54,11 @@ var displaySegment = function(segment) {
 
 $(document).ready(function() {
 
-  // id: segment.id,
-
-  var segments;
-  if ($("#segment_container")) {
-    $.ajax({
-      url: $("#segment_container").attr("href"),
-      type: "get",
-      dataType: "json",
-      success: function(data) {
-        s = new Segment(data)
-        console.log(s)
+  if ($("#segments")) {
+    console.log("hello")
+    Segment.create($("#segments").attr("href"), function() {
+      for (index in segments) {
+        displaySegment(segments[index]);
       }
     });
   }
