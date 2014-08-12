@@ -34,9 +34,8 @@ var displaySegment = function(segment) {
   }).appendTo('#segments');
 
   jQuery('<div/>', {
-    class: "left",
+    class: "left change_branch",
     href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) - 1),
-    // href: 'http://google.com',
     text: "{"
   }).appendTo(div)
 
@@ -47,7 +46,7 @@ var displaySegment = function(segment) {
   }).appendTo(div)
 
   jQuery('<div/>', {
-    class: "right",
+    class: "right change_branch",
     href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) + 1),
     text: "}"
   }).appendTo(div)
@@ -57,7 +56,6 @@ var displaySegment = function(segment) {
 $(document).ready(function() {
 
   if ($("#segments")) {
-    console.log("hello")
     Segment.create($("#segments").attr("href"), function() {
       for (index in segments) {
         displaySegment(segments[index]);
@@ -65,11 +63,13 @@ $(document).ready(function() {
     });
   }
 
-  $('.next_branch').click(function(e) { 
+  $("#segments").on('click','.change_branch', function(e) { 
     e.preventDefault();
-    var id = $(this).attr("id")
-
-    Segment.create($(this.href()))
+    Segment.create($("#segments").attr("href"), function() {
+      for (index in segments) {
+        displaySegment(segments[index]);
+      }
+    });
   });
 
 });
