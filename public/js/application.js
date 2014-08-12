@@ -20,6 +20,7 @@ Segment.create = function(path, funct) {
     dataType: "json",
     success: function(data) {
       for (info in data) {
+        console.log(data)
         segments.push(new Segment(data[info]));
       }
       funct();
@@ -34,7 +35,8 @@ var displaySegment = function(segment) {
 
   jQuery('<div/>', {
     class: "left",
-    href: "/json/" + segment.parent_id + "/0",
+    href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) - 1),
+    // href: 'http://google.com',
     text: "{"
   }).appendTo(div)
 
@@ -46,7 +48,7 @@ var displaySegment = function(segment) {
 
   jQuery('<div/>', {
     class: "right",
-    href: "/json/" + segment.parent_id + "/0",
+    href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) + 1),
     text: "}"
   }).appendTo(div)
 
