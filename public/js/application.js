@@ -58,7 +58,8 @@ $(document).ready(function() {
   if ($("#segments")) {
     Segment.create($("#segments").attr("href"), function() {
       for (index in segments) {
-        displaySegment(segments[index]);
+        var seg = segments[index];
+        displaySegment(seg);
       }
     });
   }
