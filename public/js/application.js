@@ -1,6 +1,15 @@
 var currentSegments = [];
 var newSegments = [];
 
+function contains_id(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i].id === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
 var Segment = function(data) {
   this.init(data);
 }
@@ -20,10 +29,18 @@ Segment.create = function(path, funct) {
     type: "get",
     dataType: "json",
     success: function(data) {
-      for (info in data) {
-        console.log(data)
-        currentSegments.push(new Segment(data[info]));
+      for (i in data) {
+        newSegments.push(new Segment(data[i]));
       }
+      for (i in currentSegments) {
+        if (!contains_id(newSegments, i.id)) {
+          $("#" + i.id).toggle("slide");
+          $("#" + i.id).remove();
+          index = currentSegments.indexOf(i);
+          currentSegments.splice(index, 1)
+        }
+      }
+
       funct();
     }
   });
@@ -56,13 +73,14 @@ var displaySegment = function(segment) {
 
 $(document).ready(function() {
 
-  console.log("testing")
-
   if ($("#segments")) {
     Segment.create($("#segments").attr("href"), function() {
-      for (index in currentSegments) {
-        var seg = currentSegments[index];
-        displaySegment(seg);
+      for (index in newSegments) {
+        var seg = newSegments[index];
+        if (!contains_id(currentSegments, seg.id)) {
+          currentSegments.push(seg);
+          displaySegment(seg);
+        }
       }
     });
   }
