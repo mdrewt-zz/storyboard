@@ -1,10 +1,10 @@
 get '/' do
-	# if User.where(id: session[:user_id]).first.is_a? User
-	# 	redirect '/stories'
-	# else
- #  	erb :index
- #  end
- erb :index
+	if User.where(id: session[:user_id]).first.is_a? User
+		redirect '/stories'
+	else
+  	erb :index
+  end
+ # erb :index
 end
 
 get '/signup' do

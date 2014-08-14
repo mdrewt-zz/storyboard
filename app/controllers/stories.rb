@@ -17,7 +17,7 @@ end
 
 get '/stories/:id' do
   @story = Story.find(params[:id])
-  @segment = Segment.where("story_id = ? AND parent_id = 0", @story.id).first
+  @segment = Segment.where("story_id = ? AND parent_id = 0", @story.id).first || Segment.new
   erb :story
 end
 

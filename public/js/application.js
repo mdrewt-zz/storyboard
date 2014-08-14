@@ -1,4 +1,5 @@
-var segments = [];
+var currentSegments = [];
+var newSegments = [];
 
 var Segment = function(data) {
   this.init(data);
@@ -21,7 +22,7 @@ Segment.create = function(path, funct) {
     success: function(data) {
       for (info in data) {
         console.log(data)
-        segments.push(new Segment(data[info]));
+        currentSegments.push(new Segment(data[info]));
       }
       funct();
     }
@@ -30,6 +31,7 @@ Segment.create = function(path, funct) {
 
 var displaySegment = function(segment) {
   var div = jQuery('<div/>', {
+    id: segment.id,
     class: "container"
   }).appendTo('#segments');
 
@@ -41,7 +43,6 @@ var displaySegment = function(segment) {
 
   jQuery('<div/>', {
     class: "center",
-    id: segment.id,
     text: segment.body
   }).appendTo(div)
 
@@ -59,8 +60,8 @@ $(document).ready(function() {
 
   if ($("#segments")) {
     Segment.create($("#segments").attr("href"), function() {
-      for (index in segments) {
-        var seg = segments[index];
+      for (index in currentSegments) {
+        var seg = currentSegments[index];
         displaySegment(seg);
       }
     });
@@ -69,8 +70,8 @@ $(document).ready(function() {
   $("#segments").on('click','.change_branch', function(e) { 
     e.preventDefault();
     Segment.create($("#segments").attr("href"), function() {
-      for (index in segments) {
-        displaySegment(segments[index]);
+      for (index in currentSegments) {
+        displaySegment(currentSegments[index]);
       }
     });
   });
