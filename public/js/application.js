@@ -55,6 +55,8 @@ var displaySegment = function(segment) {
 
 $(document).ready(function() {
 
+  console.log("testing")
+
   if ($("#segments")) {
     Segment.create($("#segments").attr("href"), function() {
       for (index in segments) {
