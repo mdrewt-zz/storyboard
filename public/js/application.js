@@ -35,7 +35,7 @@ var displaySegment = function(segment) {
 
   jQuery('<div/>', {
     class: "left change_branch",
-    href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) - 1),
+    href: "/json/" + segment.story_id + "/" + segment.parent_id + "/" + (parseInt(segment.index) - 1),
     text: "{"
   }).appendTo(div)
 
@@ -47,7 +47,7 @@ var displaySegment = function(segment) {
 
   jQuery('<div/>', {
     class: "right change_branch",
-    href: "/json/" + segment.parent_id + "/" + (parseInt(segment.index) + 1),
+    href: "/json/" + segment.story_id + "/" + segment.parent_id + "/" + (parseInt(segment.index) + 1),
     text: "}"
   }).appendTo(div)
 
