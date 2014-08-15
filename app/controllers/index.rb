@@ -4,6 +4,7 @@ get '/' do
 	else
   	erb :index
   end
+ # erb :index
 end
 
 get '/signup' do

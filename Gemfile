@@ -22,7 +22,8 @@ gem 'bcrypt'
 
 gem 'json'
 
+gem 'rspec'
+
 group :test do
   gem 'faker'
-  gem 'rspec'
 end
